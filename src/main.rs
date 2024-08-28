@@ -10,8 +10,8 @@ use std::{
 };
 
 const SCREEN_WIDTH: usize = 128;
-const SCREEN_HEIGHT: usize = 64;
-const REPORT_SPLIT_SZ: usize = 64;
+const SCREEN_HEIGHT: usize = 40;
+const REPORT_SPLIT_SZ: usize = 40;
 const REPORT_SIZE: usize = 1024;
 type DrawReport = [u8; REPORT_SIZE];
 
@@ -360,8 +360,9 @@ fn main() {
         .find(|d| {
             d.vendor_id() == 0x1038 // SteelSeries
         && [
-            0x12cb, // Arctis Nova Pro Wired
-            0x12e0, // Arctis Nova Pro Wireless
+            // 0x12cb, // Arctis Nova Pro Wired
+            // 0x12e0, // Arctis Nova Pro Wireless
+            0x1610, // Apex Pro
         ].contains(&d.product_id()) && d.interface_number() == 4
         })
         .expect("Device not found")
